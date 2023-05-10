@@ -1,5 +1,5 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg border-bottom border-danger">
+<nav class="navbar navbar-expand-lg bg-dark border-bottom border-danger">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="{% static 'app/images/logo.jpg' %}" style="width:40px" alt="logo">
@@ -10,28 +10,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="btn nav-link active" aria-current="page" href="{% url 'home-page' %}">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Products
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Macbook Air 13</a></li>
-              <li><a class="dropdown-item" href="#">Macbook Pro 13</a></li>
-              <li><a class="dropdown-item" href="#">Hp Victus 16</a></li>
-              <li><a class="dropdown-item" href="#">LG Gram 17</a></li>
-              <li><a class="dropdown-item" href="#">Dell XPS 15</a></li>
-              <li><a class="dropdown-item" href="#">HP Envy 13</a></li>
-              <li><a class="dropdown-item" href="#">Surface Laptop 4</a></li>
-              <li><a class="dropdown-item" href="#">Monster Huma</a></li>
+              <li><a class="btn dropdown-item" href="#">Macbook Air 13</a></li>
+              <li><a class="btn dropdown-item" href="#">Macbook Pro 13</a></li>
+              <li><a class="btn dropdown-item" href="#">Hp Victus 16</a></li>
+              <li><a class="btn dropdown-item" href="#">LG Gram 17</a></li>
+              <li><a class="btn dropdown-item" href="#">Dell XPS 15</a></li>
+              <li><a class="btn dropdown-item" href="#">HP Envy 13</a></li>
+              <li><a class="btn dropdown-item" href="#">Surface Laptop 4</a></li>
+              <li><a class="btn dropdown-item" href="#">Monster Huma</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="btn nav-link" href="{% url 'about-page' %}">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="btn nav-link" href="{% url 'contact-page' %}">Contact Us</a>
           </li>
         </ul>
         <form class="d-flex" role="search">
@@ -41,21 +41,21 @@
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown mx-2">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+          <a class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
           id="profileDropdown" aria-expanded="false">
             T-eCommerce
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown">
-            <li><a href="#" class="dropdown-item">Profile</a></li>
-            <li><a href="#" class="dropdown-item">Orders</a></li>
-            <li><a href="#" class="dropdown-item">Change Password</a></li>
-            <li><a href="#" class="dropdown-item">Logout</a></li>
+            <li><a href="#" class="btn dropdown-item">Profile</a></li>
+            <li><a href="#" class="btn dropdown-item">Orders</a></li>
+            <li><a href="#" class="btn dropdown-item">Change Password</a></li>
+            <li><a href="#" class="btn dropdown-item">Logout</a></li>
           </ul>
         </li>
-        <li class="nav-item mx-2"><a href="#" class="nav-link">Cart 4</a></li>
-        <li class="nav-item mx-2"><a href="#" class="nav-link">Wishlist 4</a></li>
-        <li class="nav-item mx-2"><a href="#" class="nav-link">Login</a></li>
-        <li class="nav-item mx-2"><a href="#" class="nav-link">Register</a></li>
+        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Cart 4</a></li>
+        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Wishlist 4</a></li>
+        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Login</a></li>
+        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Register</a></li>
       </ul>
     </div>
   </nav>

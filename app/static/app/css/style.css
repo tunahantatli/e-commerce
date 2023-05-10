@@ -1,5 +1,13 @@
+nav.navbar a.btn:hover{
+    background-color:red !important;
+    color:white !important;
+}
 footer{
     bottom:0
+}
+footer a.btn:hover{
+    background-color:red !important;
+    color:white !important;
 }
 .owl-carousel .item{
  /* border: 1px solid black; */
