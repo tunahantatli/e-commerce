@@ -16,12 +16,12 @@
         {% endfor %}
       </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-9 p-6">
         <div class="row row-cols-1 row-cols-md-3 g-4">
             {% for prod in product %}
                <div class="col">
                 <a href="#" class="btn">
-                    <div class="card h-100">
+                    <div class="card">
                         <img src="{{ prod.product_image.url}}" class="card-img-top" alt="product-image">
                         <div class="card-body">
                           <h5 class="card-title">{{prod.title}}</h5>
