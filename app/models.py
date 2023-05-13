@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 CATEGORY_CHOISES=(
     ('WD','Web Development'),
-    ('DS','Data Secience'),
+    ('DS','Data Science'),
     ('AI', 'Artificial Intelligence'),
     ('GM', 'Game® Development')
 )
@@ -19,3 +19,5 @@ class Product(models.Model):
     product_image = models.ImageField(upload_to='product')
     def __str__(self):
         return self.title
+
+
