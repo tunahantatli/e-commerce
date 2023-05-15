@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 nav.navbar a.btn:hover{
     background-color:red !important;
     color:white !important;
@@ -21,6 +24,7 @@ footer a.btn:hover{
     /* border: 1px solid black; */
     transform : scale(1.1);
 }
+
 
 /* .owl-carousel img{
     transition: transform .5s ease;
