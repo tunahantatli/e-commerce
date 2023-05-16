@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Product
-from .forms import CustomerRegistrationForm, LoginForm
+from .models import Product, Customer
+from .forms import CustomerRegistrationForm, LoginForm, CustomerProfileForm
 from django.contrib import messages
 
 # Create your views here.
@@ -54,6 +54,30 @@ class LoginView(View):
 
 class ProfileView(View):
     def get(self, request):
+        form = CustomerProfileForm()
         return render(request, 'app/profile.html', locals())
     def post(self,request):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            user = request.user
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            mobile = form.cleaned_data['mobile']
+            locality = form.cleaned_data['locality']
+            city = form.cleaned_data['city']
+            state = form.cleaned_data['state']
+            zipcode = form.cleaned_data['zipcode']
+
+
+            reg = Customer(user=user, first_name=first_name, last_name=last_name, mobile=mobile, locality=locality, city=city, state=state, zipcode=zipcode)
+            reg.save()
+            messages.success(request, 'Profile updated successfully!')
+        else:
+            messages.error(request, 'Oppss! Something went wrong')
         return render(request, 'app/profile.html', locals())
+
+
+def address(request):
+    add = Customer.objects.filter(user=request.user)
+    return render(request, 'app/address.html', locals())
+
