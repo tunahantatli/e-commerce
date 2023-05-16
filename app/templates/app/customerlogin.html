@@ -1,11 +1,11 @@
 {% extends "app/base.html" %}
 {% load static %}
-{% block title %} Register {% endblock title %}
+{% block title %} Login {% endblock title %}
 {% block main-content %}
 <div class="container">
     <div class="row my-4">
         <div class="col-sm-6 offset-sm-3">
-            <h6>Customer Registration</h6>
+            <h6>Customer Login</h6>
             <hr>
             
             <form action="" method="post" novalidate class="shadow p-5">
@@ -14,13 +14,16 @@
                    {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small>
                    <br>
                 {% endfor %}
-                <input type="submit" value="Register" class="btn btn-success">
 
-                <div class="text-center text-success fw-bold">
-                    <small>Existing User? <a href="{% url 'customer-login' %}" class="text-danger text-decoration-none">Login Now</a>
+                <small><a class="text-decoration-none text-warning" href="{% url 'password-reset' %}">Forgot Password?</a> <br></small> <br>
+                <input type="submit" value="Login" class="btn btn-success">
+
+
+                <div class="text-center text-light fw-bold">
+                    <small>
+                        Don't have an account yet? <a href="{% url 'customer-register' %}" class="text-danger text-decoration-none">Register Now!</a>
                     </small>
                 </div>
-
                 {% if form.non_field_errors %}
                     {% for error in form.non_field_errors %}
                        <p class="alert alert-warning">{{error}}</p>

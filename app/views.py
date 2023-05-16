@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from .models import Product
-from .forms import CustomerRegistrationForm
+from .forms import CustomerRegistrationForm, LoginForm
 from django.contrib import messages
 
 # Create your views here.
@@ -45,3 +45,15 @@ class CustomerRegistrationView(View):
         else:
             messages.error(request, 'Invalid input data! Please try again.')
         return render(request, 'app/customerregistration.html', locals())
+
+class LoginView(View):
+    def get(self, request):
+        form= LoginForm()
+        return render(request, 'app/customerlogin.html', locals())
+
+
+class ProfileView(View):
+    def get(self, request):
+        return render(request, 'app/profile.html', locals())
+    def post(self,request):
+        return render(request, 'app/profile.html', locals())

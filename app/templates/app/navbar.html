@@ -42,7 +42,7 @@
             T-eCommerce
           </a>
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown">
-            <li><a href="#" class="btn dropdown-item">Profile</a></li>
+            <li><a href="{% url 'profile' %}" class="btn dropdown-item">Profile</a></li>
             <li><a href="#" class="btn dropdown-item">Orders</a></li>
             <li><a href="#" class="btn dropdown-item">Change Password</a></li>
             <li><a href="#" class="btn dropdown-item">Logout</a></li>
@@ -50,7 +50,7 @@
         </li>
         <li class="nav-item mx-2"><a href="#" class="btn nav-link">Cart 4</a></li>
         <li class="nav-item mx-2"><a href="#" class="btn nav-link">Wishlist 4</a></li>
-        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Login</a></li>
+        <li class="nav-item mx-2"><a href="{% url 'customer-login' %}" class="btn nav-link">Login</a></li>
         <li class="nav-item mx-2"><a href="{% url 'customer-register' %}" class="btn nav-link">Register</a></li>
       </ul>
     </div>
