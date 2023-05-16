@@ -2,14 +2,16 @@ body{
     overflow-x: hidden;
 }
 nav.navbar a.btn:hover{
-    background-color:red !important;
+    border-top: 1px solid red;
+    border-bottom:1px solid green !important;
     color:white !important;
 }
 footer{
     bottom:0
 }
 footer a.btn:hover{
-    background-color:red !important;
+    border-top:1px solid red !important;
+    border-bottom:1px solid green !important;
     color:white !important;
 }
 .owl-carousel .item{
