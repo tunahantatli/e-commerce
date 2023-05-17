@@ -1,10 +1,13 @@
 body{
     overflow-x: hidden;
 }
+nav.navbar a.btn{
+    font-weight:bold;
+}
 nav.navbar a.btn:hover{
+    border-radius: 0;
     border-top: 1px solid red;
-    border-bottom:1px solid green !important;
-    
+    color:rgb(14, 76, 168);
 }
 footer{
     background-color: rgb(221, 221, 221) !important;
@@ -13,11 +16,11 @@ footer{
 }
 footer a.btn{
     font-weight: 400;
+    border-radius: 0;
 }
 
 footer a.btn:hover{
-    border-top:1px solid red !important;
-    border-bottom:1px solid green !important;
+    border-bottom:1px solid red !important;
 }
 .owl-carousel .item{
  /* border: 1px solid black; */
