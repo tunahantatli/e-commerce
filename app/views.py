@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import Product, Customer
 from .forms import CustomerRegistrationForm, LoginForm, CustomerProfileForm
@@ -81,3 +81,26 @@ def address(request):
     add = Customer.objects.filter(user=request.user)
     return render(request, 'app/address.html', locals())
 
+class UpdateAddress(View):
+    def get(self, request, pk, quaryset=None):
+        add = Customer.objects.get(pk=pk)
+        form= CustomerProfileForm(instance=add)
+        return render(request, 'app/update_address.html', locals())
+    def post(self, request, pk):
+        form = CustomerProfileForm(request.POST)
+        if form.is_valid():
+            add = Customer.objects.get(pk=pk)
+            add.first_name = form.cleaned_data['first_name']
+            add.last_name = form.cleaned_data['last_name']
+            add.mobile = form.cleaned_data['mobile']
+            add.locality = form.cleaned_data['locality']
+            add.city = form.cleaned_data['city']
+            add.state = form.cleaned_data['state']
+            add.zipcode = form.cleaned_data['zipcode']
+        
+            add.save()
+            messages.success(request, 'Your Address updated successfully!')
+        else:
+            messages.error(request, 'Opss! Something went wrong!')
+
+        return redirect('address')

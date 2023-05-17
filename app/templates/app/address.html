@@ -1,9 +1,42 @@
 {% extends "app/base.html" %} 
-{% load static %}
-{% block title %} Customer Address {% endblock title %}
-
-{% block  main-content %}
+{% load static %} 
+{% block title %}Addres{%endblock title %} 
+{% block main-content %}
 <div class="container my-5">
-    <h1>Lorem, ipsum.</h1>
+  <div class="row">
+    <h3>Wellcome <span>{{request.user}}</span>!</h3>
+
+    <div class="col-sm-2">
+      <ul class="list-unstyled">
+        <li class="d-grid my-2">
+          <a href="{% url 'profile' %}" class="btn  btn-outline-success">Profile</a>
+        </li>
+        <li class="d-grid my-2">
+          <a href="{% url 'address'%}" class="btn btn-danger">Address</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 offset-sm-1">
+        <div class="row">
+            {% for ad in add %}
+               <div class="col-sm-6">
+                <div class="card m-2">
+                    <div class="card-body">
+                        <h3>Address {{forloop.counter}}</h3>
+                        <p>First Name: {{ad.first_name}}</p>
+                        <p>Last Name: {{ad.last_name}}</p>
+                        <p>Mobile: {{ad.mobile}}</p>
+                        <p>Locality: {{ad.locality}}</p>
+                        <p>City: {{ad.city}}</p>
+                        <p>State: {{ad.state}}</p>
+                        <p>Zipcode: {{ad.zipcode}}</p>
+                        <p class="text-center"><a href="{% url 'update-address' pk=ad.id %}" class="btn btn-success" type="button">Update Address</a></p>
+                    </div>
+                </div>
+               </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
 </div>
 {% endblock main-content %}
