@@ -104,3 +104,4 @@ class UpdateAddress(View):
             messages.error(request, 'Opss! Something went wrong!')
 
         return redirect('address')
+
