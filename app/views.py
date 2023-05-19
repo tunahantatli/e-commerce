@@ -105,3 +105,8 @@ class UpdateAddress(View):
 
         return redirect('address')
 
+def add_to_cart(request):
+    pass
+
+def show_cart(request):
+    pass
