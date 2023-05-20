@@ -34,28 +34,29 @@
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button title="search-btn" class="btn text-danger p-2 search-butn" type="submit"><i class="bi bi-search"></i></button>
         </form>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item mx-2"><a href="#" class="btn nav-link">Cart 4</a></li>
+          <li class="nav-item mx-2"><a href="#" class="btn nav-link">Wishlist 4</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item dropdown mx-2">
+            <a class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+            id="profileDropdown" aria-expanded="false">
+              Account
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown">
+              <li><a href="{% url 'profile' %}" class="btn dropdown-item">Profile</a></li>
+              <li><a href="#" class="btn dropdown-item">Orders</a></li>
+              <li><a href="{% url 'password-change' %}" class="btn dropdown-item">Change Password</a></li>
+              <li><a href="{% url 'logout' %}" class="btn dropdown-item">Logout</a></li>
+            </ul>
+          </li>
+          
+          {% else %}
+          <li class="nav-item mx-2"><a href="{% url 'customer-login' %}" class="btn nav-link">Login</a></li>
+          <li class="nav-item mx-2"><a href="{% url 'customer-register' %}" class="btn nav-link">Register</a></li>
+          {% endif %}
+        </ul>
       </div>
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Cart 4</a></li>
-        <li class="nav-item mx-2"><a href="#" class="btn nav-link">Wishlist 4</a></li>
-        {% if user.is_authenticated %}
-        <li class="nav-item dropdown mx-2">
-          <a class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
-          id="profileDropdown" aria-expanded="false">
-            Account
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-start" aria-labelledby="profileDropdown">
-            <li><a href="{% url 'profile' %}" class="btn dropdown-item">Profile</a></li>
-            <li><a href="#" class="btn dropdown-item">Orders</a></li>
-            <li><a href="{% url 'password-change' %}" class="btn dropdown-item">Change Password</a></li>
-            <li><a href="{% url 'logout' %}" class="btn dropdown-item">Logout</a></li>
-          </ul>
-        </li>
-        
-        {% else %}
-        <li class="nav-item mx-2"><a href="{% url 'customer-login' %}" class="btn nav-link">Login</a></li>
-        <li class="nav-item mx-2"><a href="{% url 'customer-register' %}" class="btn nav-link">Register</a></li>
-        {% endif %}
-      </ul>
+      
     </div>
   </nav>
