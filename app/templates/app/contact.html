@@ -5,34 +5,28 @@
 <div class="mt-0 mb-2">
     <img src="{% static 'app/images/contact-us.png' %}" class="w-100" alt="">
 </div>
-<div class="container mt-4 mb-2 ">
-    <div class="row m-3">
-        <div class="col-lg-3 mb-4">
-            <div class="m-2 p-2 w-100">
-                <ul class="list-unstyled m-2">
-                    <li><i class="bi bi-phone-vibrate-fill"></i> <a href="tel:+5555555" class="text-decoration-none text-white">555555</a></li>
-                    <li><i class="bi bi-envelope-at-fill"></i> <a href="mailto:dsdsd" class="text-decoration-none text-white">dsdvsds</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="card mb-3 border-0" style="max-width: 540px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="{% static 'app/images/logo.jpg' %}" class="img-fluid rounded-start w-100" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Address</h5>
-                      <p class="card-text">Lorem ipsum dolor sit. No:13 World</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col-lg-5">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1441.4012502280798!2d7.420603089167741!3d43.7354295324908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdc28bfa733ce7%3A0x1002d8bbd550b626!2sMonaco%20Grand%20Prix%20de%20Monaco!5e0!3m2!1str!2str!4v1684020756637!5m2!1str!2str"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-100 h-100"></iframe>
-        </div>
+<div class="container my-5">
+  <div class="card-group">
+    <div class="card">
+      <iframe class="w-100 h-100" src="https://www.google.com/maps/d/embed?mid=11Y2vufmAUYWOLo3LJoRXyTh6bgo&hl=en_US&ehbc=2E312F"></iframe>
     </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Meet Us</h5>
+        <ul class="list-unstyled">
+          <li><a href="tel:+123456789" class="text-decoration-none text-dark fw-bold"><i class="bi bi-telephone-fill text-success"></i> 123456789</a></li>
+          <li><a href="mailto:contact@example.com" class="text-decoration-none text-dark fw-bold"><i class="bi bi-envelope-at-fill text-success"></i> contact@tecommerce.com</a></li>
+          <li class="text-dark fw-bold"><a href="https://www.google.com/maps/d/viewer?mid=11Y2vufmAUYWOLo3LJoRXyTh6bgo&hl=en_US&ll=43.73757901783415%2C7.427050244388584&z=18" class="text-decoration-none text-dark"><i class="bi bi-geo-alt-fill text-success"></i> Lorem, ipsum dolor sit amet consectetur adipisicing. No:7/8</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="card bg-dark text-white">
+      <div class="card-body">
+        <h5 class="card-title">Pitch Us</h5>
+        <p class="card-text">If you want to pitch us. Click button and send mail.</p>
+        <a href="mailto:contact@mail.com" class="btn btn-info text-white">Send</a>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock main-content %}

@@ -10,11 +10,11 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="btn nav-link active" aria-current="page" href="{% url 'home-page' %}">Home</a>
+            <a class="btn nav-link" aria-current="page" href="{% url 'home-page' %}">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="btn nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Products
+              Categories
             </a>
             <ul class="dropdown-menu">
               <li><a class="btn dropdown-item" href="{% url 'category' 'WD' %}">Web Development</a></li>
@@ -35,7 +35,7 @@
           <button title="search-btn" class="btn text-danger p-2 search-butn" type="submit"><i class="bi bi-search"></i></button>
         </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item mx-2"><a href="#" class="btn nav-link">Cart 4</a></li>
+          <li class="nav-item mx-2"><a href="{% url 'show-cart' %}" class="btn nav-link">Cart <i class="bi bi-cart4"></i></a></li>
           <li class="nav-item mx-2"><a href="#" class="btn nav-link">Wishlist 4</a></li>
           {% if user.is_authenticated %}
           <li class="nav-item dropdown mx-2">
