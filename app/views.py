@@ -120,7 +120,7 @@ def show_cart(request):
     amount = 0
     for p in cart:
         value = p.quantity * p.product.discount_price
-        amount += value
+        amount = amount + value
     totalamount = amount + 0 # add shipping price
 
     return render(request, 'app/addtocart.html', locals())
