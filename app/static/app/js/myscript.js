@@ -26,8 +26,6 @@ $('.plus-cart').click(function(){
             eml.innerText=data.quantity 
             document.getElementById("amount").innerText=data.amount 
             document.getElementById("totalamount").innerText=data.totalamount
-            console.log(data.amount)
-            console.log(data.quantity)
         }
     })
 })
