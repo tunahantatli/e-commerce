@@ -128,7 +128,7 @@ def show_cart(request):
 
 def plus_cart(request):
     if request.method == 'GET':
-        prod_id = request.GET['prod_id']
+        prod_id = request.GET('prod_id')
         c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
         c.quantity += 1
         c.save()
