@@ -126,6 +126,11 @@ def show_cart(request):
     return render(request, 'app/addtocart.html', locals())
 
 
+class CheckoutView(View):
+    def get(self, request):
+        return render(request, 'app/checkout.html', locals())
+
+
 def plus_cart(request):
     if request.method == 'GET':
         prod_id = request.GET['prod_id']

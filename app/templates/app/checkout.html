@@ -1,0 +1,61 @@
+{% extends "app/base.html" %}
+{% block title %}Checkout{% endblock title %}
+{% block main-content %} 
+<div class="container my-5">
+    {% if messages %}
+       {% for msg in messages %}
+       <div class="alert alert-danger" role="alert">
+        {{msg}}
+       </div>
+       {% endfor %}
+    {% endif %}
+    <div class="row mt-5">
+        <div class="col-sm-6 mb-4">
+            <h4>Order Summary</h4>
+            <hr>
+            {% for item in cart_items %}
+            <div class="card mb-2">
+                <div class="card-body">
+                    <h5>Product: {{item.product.title}}</h5>
+                    <p>Qantity: {{item.quantity}}</p>
+                    <p class="fw-bold">{{item.product.discount_price}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            <p class="fw-bold">Total Cost: $. {{totalamount}}</p>
+            <small>Term & Condition: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia quas ut dolores pariatur illum, perferendis libero magnam laudantium cum quaerat esse tempora sequi qui deserunt doloribus nemo repudiandae eos nesciunt?</small>
+        </div>
+        <div class="col-sm-4 offset-sm-1">
+            <h4>Select Shipping Address</h4>
+            <hr>
+            <form id="myform" method="post">
+                {% csrf_token %}
+                {% for ad in add %}
+                <div class="card">
+                    <div class="card-body">
+                        <h6>{{ad.first_name}} {{ad.last_name}}</h6>
+                        <p> Mobile: {{ad.mobile}}</p>
+                        <p>{{ad.locality}} {{ad.city}} {{ad.state}} - {{ad.zipcode}}</p>
+                    </div>
+                </div>
+                <div class="form-check mt-2 mb-5">
+                    <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}">
+                    <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">
+                        Address: {{forloop.counter}}
+                    </label>
+                </div>
+                {% endfor %}
+                <div class="form-check mb-3">
+                    <label for="totalamount" class="form-label">Total Amount</label>
+                    <input type="number" class="form-control" id="totalamount" name="totalamount" value="{{totalamount}}" readonly>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-warning fw-bold mt-3 px-5">Continue</button>
+                    <!-- <div id="paypal-button-container"></div> -->
+                    {% comment %}<button type="submit" class="btn btn-warning fw-bold mt-3 px-5" id="rzp-button1">Payment</button>{% endcomment %}
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main-content %}
