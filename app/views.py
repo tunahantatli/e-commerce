@@ -128,6 +128,14 @@ def show_cart(request):
 
 class CheckoutView(View):
     def get(self, request):
+        user=request.user
+        add= Customer.objects.filter(user=user)
+        cart_items=Cart.objects.filter(user=user)
+        famount = 0
+        for p in cart_items:
+            value = p.quantity * p.product.discount_price
+            famount += value
+        totalamount = famount + 0 # 0 = shipping price
         return render(request, 'app/checkout.html', locals())
 
 
