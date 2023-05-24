@@ -53,3 +53,4 @@ $(".remove-cart").click(function() {
         }
     })
 })
+
