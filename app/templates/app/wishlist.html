@@ -1,0 +1,45 @@
+{% extends "app/base.html" %} 
+{% load static %}
+{% block title %}wishlist{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        {% if wishcard %}
+        <h3 class="text-center mb-4">Your Favorites</h3>
+            {% for item in wishcard %}
+            <div class="card mb-3" max-width="540px">
+                <div class="row g-0">
+                    
+                    <div class="col-md-4">
+                        <img src="{{item.product.product_image.url}}" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">{{item.product.title}}</h5>
+                          <p class="card-text">{{item.product.description}}</p>
+                          <p class="card-text text-success">$ {{item.product.discount_price}} <small class="text-dark text-decoration-line-through">$ {{item.product.selling_price}}</small></p>
+                          <p class="card-text"><small class="text-body-secondary">Cargo Free</small></p>
+                          <br>
+                          <a href="#" class="remove-wishlist mr-3 btn btn-secondary" pid={{item.product.id}}>Remove</a>
+                        </div>
+                      </div>
+                    
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <a href="{% url 'home-page' %}"
+        class="text-decoration-none">
+            <div class="card mb-4 bg-warning">
+                <div class="card-body p-5">
+                    <h2 class="card-title text-center fw-bold mb-2"><i class="bi bi-heartbreak"></i></h2>
+                    <p class="card-text text-center text-dark fw-bold">
+                        Your wish list appears to be empty yet. Please click to see our beautiful products that you may like.
+                    </p>
+                </div>
+            </div>
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock main-content %}

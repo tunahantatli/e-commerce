@@ -81,3 +81,18 @@ $('.minus-wishlist').click(function(){
         }
     })
 })
+
+$(".remove-wishlist").click(function() {
+    var id = $(this).attr("pid").toString();
+    var eml = this;
+    $.ajax({
+        type:"GET",
+        url:"/removewish",
+        data: {
+            prod_id: id,
+        },
+        success:function(data) {
+            eml.parentNode.parentNode.parentNode.parentNode.remove()
+        }
+    })
+})

@@ -65,6 +65,8 @@ class ProductDetail(View):
         
         return render(request, 'app/productdetail.html', locals())
 
+
+
 def plus_wishlist(request):
     if request.method == 'GET':
         prod_id=request.GET['prod_id']
@@ -213,6 +215,18 @@ def show_cart(request):
     else:
         return redirect('/register')
 
+def show_wishlist(request):
+    totalitem = 0
+    wishitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+        wishitem = len(Wishlist.objects.filter(user=request.user))
+        user = request.user
+        wishcard = Wishlist.objects.filter(user=user)
+        return render(request, 'app/wishlist.html', locals())
+    else:
+        return redirect('/register')
+
 
 class CheckoutView(View):
     def get(self, request):
@@ -279,6 +293,15 @@ def remove_cart(request):
         totalamount = amount + 0 # add shipping price
         data = {'amount': amount, 'totalamount': totalamount}
         return JsonResponse(data)
+
+
+def remove_wishlist(request):
+    if request.method == 'GET':
+        prod_id = request.GET['prod_id']
+        w = Wishlist.objects.get(Q(product=prod_id) & Q(user=request.user))
+        w.delete()
+        return JsonResponse({'status': 'success'})
+
 
 def orders(request):
     totalitem = 0

@@ -3,22 +3,21 @@
 {% block title %}Search Results{% endblock title %}
 {% block main-content %}
 <div class="container my-5">
-    <div class="row">
-        <div class="col-sm-8">
-            <div class="row">
-                {% for prod in product %}
-                <div class="col-sm-4 text-center mb-4 mx-5 hover-shadow">
-                    <a href="{% url 'product-detail' prod.id %}" class="btn">
-                        <div class="bg-warning">
-                            <img src="{{prod.product_image.url}}" width="300px" height="200px" alt="product-image"/>
-                            <div class="fw-bold text-secondary">{{prod.title}}</div>
-                            <div class="fw-bold text-light">$. {{prod.discount_price}} <small class="text-dark text-decoration-line-through">$. {{prod.selling_price}}</small></div>
-                        </div>
-                    </a>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for prod in product %}
+        <a href="{% url 'product-detail' prod.id %}" class="text-decoration-none">
+            <div class="col">
+                <div class="card">
+                  <img src="{{prod.product_image.url}}" class="card-img-top" alt="..." width="300px" height="200px">
+                  <div class="card-body">
+                    <h5 class="card-title">{{prod.title}}</h5>
+                    <p class="card-text text-success">$. {{prod.discount_price}}   <small class="text-danger text-decoration-line-through">$. {{prod.selling_price}}</small></p>
+                  </div>
                 </div>
-                {% endfor %}
-            </div>
-        </div>
+              </div>
+        </a>
+        {% endfor %}
+        
     </div>
 </div>
 {% endblock main-content %}
