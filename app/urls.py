@@ -26,6 +26,7 @@ urlpatterns = [
     path('orders/', views.orders, name="orders"),
     path('pluswishlist/', views.plus_wishlist),
     path('minuswishlist/', views.minus_wishlist),
+    path('search/', views.search , name="search"),
     
 
     #login authentication
@@ -39,3 +40,8 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/', auth_view.PasswordResetConfirmView.as_view(template_name='app/password_reset_confirm.html', form_class=MySetPasswordForm), name="password_reset_confirm"),
     path('password-reset-complete', auth_view.PasswordResetCompleteView.as_view(template_name='app/password_reset_complete.html'), name="password_reset_complete"),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header= 'T-eCommerce Administration Console'
+admin.site.site_title= 'T-eCommerce Administration'
+admin.site.site_index_title = 'Welcome to T-eCommerce Administration Console'

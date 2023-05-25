@@ -30,8 +30,8 @@
             <a class="btn nav-link" href="{% url 'contact-page' %}">Contact Us</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form class="d-flex" role="search" action="/search">
+          <input class="form-control me-2" type="search" name="search" placeholder="Search" aria-label="Search">
           <button title="search-btn" class="btn text-danger p-2 search-butn" type="submit"><i class="bi bi-search"></i></button>
         </form>
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">

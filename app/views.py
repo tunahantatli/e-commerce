@@ -56,12 +56,12 @@ class CategoryTitle(View):
 class ProductDetail(View):
     def get(self, request, pk):
         product = Product.objects.get(pk=pk)
-        wishlist = Wishlist.objects.filter(Q(product=product)&Q(user=request.user))
         totalitem = 0
         wishitem = 0
         if request.user.is_authenticated:
-           totalitem = len(Cart.objects.filter(user=request.user))
-           wishitem = len(Wishlist.objects.filter(user=request.user))
+            wishlist = Wishlist.objects.filter(Q(product=product)&Q(user=request.user))
+            totalitem = len(Cart.objects.filter(user=request.user))
+            wishitem = len(Wishlist.objects.filter(user=request.user))
         
         return render(request, 'app/productdetail.html', locals())
 
@@ -187,11 +187,14 @@ def add_to_cart(request):
     if request.user.is_authenticated:
         totalitem = len(Cart.objects.filter(user=request.user))
         wishitem = len(Wishlist.objects.filter(user=request.user))
-    user = request.user
-    product_id = request.GET.get('prod_id')
-    product = Product.objects.get(id=product_id)
-    Cart(user=user, product=product).save()
-    return redirect('/cart')
+        user = request.user
+        product_id = request.GET.get('prod_id')
+        product = Product.objects.get(id=product_id)
+        Cart(user=user, product=product).save()
+        return redirect('/cart')
+    else:
+        return redirect('/register')
+    
 
 def show_cart(request):
     totalitem = 0
@@ -199,15 +202,16 @@ def show_cart(request):
     if request.user.is_authenticated:
         totalitem = len(Cart.objects.filter(user=request.user))
         wishitem = len(Wishlist.objects.filter(user=request.user))
-    user = request.user
-    cart = Cart.objects.filter(user=user)
-    amount = 0
-    for p in cart:
-      value = p.quantity * p.product.discount_price
-      amount = amount + value
-    totalamount = amount + 0 # add shipping price
-
-    return render(request, 'app/addtocart.html', locals())
+        user = request.user
+        cart = Cart.objects.filter(user=user)
+        amount = 0
+        for p in cart:
+           value = p.quantity * p.product.discount_price
+           amount = amount + value
+        totalamount = amount + 0 # add shipping price
+        return render(request, 'app/addtocart.html', locals())
+    else:
+        return redirect('/register')
 
 
 class CheckoutView(View):
@@ -284,3 +288,14 @@ def orders(request):
         wishitem = len(Wishlist.objects.filter(user=request.user))
    # order_placed = OrderPlace.objects.filter(user=request.user)
     return render(request, 'app/orders.html', locals())
+
+def search(request):
+    query = request.GET['search']
+    totalitem = 0
+    wishitem = 0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+        wishitem = len(Wishlist.objects.filter(user=request.user))
+    
+    product = Product.objects.filter(Q(title__icontains=query))
+    return render(request, 'app/search.html', locals())
