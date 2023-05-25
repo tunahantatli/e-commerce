@@ -23,7 +23,9 @@ urlpatterns = [
     path('pluscart/', views.plus_cart),
     path('minuscart/', views.minus_cart),
     path('removecart/', views.remove_cart),
-    path('orders', views.orders, name="orders"),
+    path('orders/', views.orders, name="orders"),
+    path('pluswishlist/', views.plus_wishlist),
+    path('minuswishlist/', views.minus_wishlist),
     
 
     #login authentication

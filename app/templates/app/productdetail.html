@@ -26,15 +26,18 @@ Details {% endblock title %} {% block main-content %}
       <form action="/add-to-cart" class="d-inline">
         <input type="hidden" name="prod_id" value="{{product.id}}">
         <button
-        class="btn btn-success shadow py-2 px-5"
+        class="btn btn-primary shadow py-2 px-5"
         type="submit"
       >
         Add to Cart
       </button>
       </form>
-      <a href="{% url 'show-cart' %}" class="btn btn-danger shadow px-5 py-2 ms-4">Buy Now</a>
-      <a class="ms-4 text-dark btn btn-md fw-bold border border-2-solid" id="wishlisticon"><i class="bi bi-heart-fill"></i></a>
-      </script>
+      <a href="{% url 'show-cart' %}" class="btn btn-warning shadow px-5 py-2 ms-4">Buy Now</a>
+      {% if wishlist %}
+      <a pid={{product.id}} class="minus-wishlist btn btn-danger shadow  ms-4"><i class="fas fa-heart fa-lg"></i></a>
+      {% else %}
+      <a pid={{product.id}} class="plus-wishlist btn btn-primary shadow  ms-4"><i class="fas fa-heart fa-lg"></i></a>
+      {% endif %}
     </div>
   </div>
 </div>

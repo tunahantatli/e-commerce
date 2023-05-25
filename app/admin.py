@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Product, Customer, Cart, Payment, OrderPlaced
+from .models import Product, Customer, Cart, Payment, OrderPlaced, Wishlist
 
 # Register your models here.
 @admin.register(Product)
@@ -36,3 +36,7 @@ class PaymentModelAdmin(admin.ModelAdmin):
 @admin.register(OrderPlaced)
 class OrderPlacedAdmin(admin.ModelAdmin):
     list_display=['id','user', 'customer', 'product', 'quantity', 'order_date', 'status', 'payment']
+
+@admin.register(Wishlist)
+class WishlistAdmin(admin.ModelAdmin):
+    list_display=['id','user', 'product']
