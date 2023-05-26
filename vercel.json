@@ -4,11 +4,5 @@
             "src":"ec/wsgi.py",
             "use":"@vercel/python"
         }
-    ],
-    "router":[
-        {
-            "src":"/(.*)",
-            "dest":"ec/wsgi.py"
-        }
     ]
 }
